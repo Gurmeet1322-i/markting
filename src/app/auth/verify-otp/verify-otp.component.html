@@ -1,0 +1,18 @@
+<div class="d-flex justify-content-center align-items-center container">
+    <div class="card py-5 px-3">
+        <span class="text-center"><img src="../assets/img/undraw_pending_approval_xuu9.svg"  width="100px" height="100px" alt=""></span>
+        <h5 class="m-0 text-center mt-1">Mobile Number Verification</h5><span class="mobile-text text-center">Enter the code we just send on your mobile phone<br> <b class="text-danger">+91 86684833</b></span>
+        <form [formGroup]="OtpForm" (submit)="submit()">
+            <div class="d-flex flex-row mt-3">
+                <input type="text" class="form-control text-center" formControlName="one" #first (input)="input($event)" autofocus>
+                <input type="text" class="form-control text-center" formControlName="two" #second max="9" (input)="input($event)">
+                <input type="text" class="form-control text-center" formControlName="three" #third max="9" (input)="input($event)">
+                <input type="text" class="form-control text-center" formControlName="four" #forth max="9" (input)="input($event)">
+            </div>
+            <div class="mt-3 text-center">
+                <button class="btn btn-danger px-4 verify">Validate</button>
+            </div>
+        </form>
+        <div class="text-center mt-3"><span class="d-block mobile-text">Don't receive the code?</span><span class="font-weight-bold text-danger cursor">Resend</span></div>
+    </div>
+</div>
