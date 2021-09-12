@@ -40,8 +40,7 @@ nav ul li a {
     border-radius: 3px;
 }
 
-a:hover,
-a.active {
+a:hover {
     background: #ff1b2e;
     transition: 0.5s;
 }
@@ -104,7 +103,8 @@ a.active {
     nav ul li a {
         font-size: 20px;
     }
-    a:hover {
+    a:hover,
+    a.active {
         background: #ff1b2e;
         transition: 0.5s;
     }

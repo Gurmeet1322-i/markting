@@ -1,0 +1,7 @@
+.align-items-stretch {
+    align-items: stretch !important;
+}
+
+.d-flex {
+    display: flex !important;
+}

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SignInComponent } from './auth/sign-in/sign-in.component'
 import { VerifyOtpComponent } from './auth/verify-otp/verify-otp.component';
-import { AUTH_PATH, MAIN_PATHS } from './constants';
+import { ADMIN_PATH, AUTH_PATH, MAIN_PATHS } from './constants';
 import { MainGuard } from './core/auth-guard-service/main.guard';
 
 const routes: Routes = [
@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: AUTH_PATH.SIGN_IN, component: SignInComponent },
   { path: AUTH_PATH.VERIFY_OTP, component: VerifyOtpComponent },
   { path: MAIN_PATHS.MAIN, canActivate: [], loadChildren: () => import('./main/main.module').then((m) => m.MainModule) },
+  { path: ADMIN_PATH.ADMIN, loadChildren: () => import('./admin/admin.module').then((m) => m.AdminModule) },
   { path: '**', pathMatch: 'full', redirectTo: AUTH_PATH.SIGN_IN }
 ];
 

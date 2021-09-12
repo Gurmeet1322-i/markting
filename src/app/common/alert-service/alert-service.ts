@@ -34,12 +34,22 @@ export class AlertService {
         })
     }
 
-    async success() {
+    async success(msg:string) {
         return await Swal.fire({
             icon: 'success',
-            title: 'Your work has been saved',
+            title: msg,
             showConfirmButton: false,
             timer: 1500
+        })
+    }
+
+    async promtBox() {
+        return await Swal.fire({
+            title: 'Enter amount.',
+            input: 'number',
+            showCancelButton: true,
+            confirmButtonText: 'Submit',
+            showLoaderOnConfirm: true,
         })
     }
 

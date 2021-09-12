@@ -1,3 +1,9 @@
+export interface UserRute {
+    path:string,
+    name:string,
+    role:number
+}
+
 export const AUTH_PATH ={
     SIGN_IN:'sign-in',
     VERIFY_OTP:'otp-verify'
@@ -17,5 +23,44 @@ export const API_PATH = {
 
 export const MAIN_PATHS = {
     MAIN:'main',
-    DASHBOARD:'dashboard'
+    CONTACT_LIST:'home',
+    ACCOUNT:'account'
 }
+
+export const ADMIN_PATH = {
+    ADMIN:'admin',
+    DASHBOARD:'dashboard',
+    USERS:'users'
+}
+
+export const USER_ROUTES:UserRute[]=[
+    {
+        path:'home',
+        name:'Home',
+        role:2
+    },
+    {
+        path:'account',
+        name:'Account',
+        role:2
+    },
+    {
+        path:'../admin',
+        name:'Admin',
+        role:1
+    }
+]
+
+
+export const ADMIN_ROUTES:UserRute[]=[
+    {
+        path:'dashboard',
+        name:'Dashboard',
+        role:1
+    },
+    {
+        path:'users',
+        name:'Users',
+        role:1
+    }
+]

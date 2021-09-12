@@ -1,0 +1,22 @@
+table thead tr th {
+    color: #f50057d9;
+}
+
+.bg-white {
+    background-color: rgba(255, 255, 255, 0.822);
+}
+
+.btn {
+    margin-right: 5px;
+}
+
+tr:hover {
+    /* background-color: #f50057d9; */
+}
+
+.table-box {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 20px;
+}

@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertService } from 'src/app/common/alert-service/alert-service';
 import { MAIN_PATHS } from 'src/app/constants';
 
 @Component({
@@ -15,7 +16,7 @@ export class VerifyOtpComponent implements OnInit {
   @ViewChild('forth') forth:ElementRef;
   OtpForm: FormGroup;
 
-  constructor(private router: Router, private fb: FormBuilder) {
+  constructor(private router: Router, private fb: FormBuilder,private alertService:AlertService) {
     this.OtpForm = this.fb.group({
       one: ['', Validators.required],
       two: ['', Validators.required],
@@ -28,7 +29,11 @@ export class VerifyOtpComponent implements OnInit {
   }
 
   submit(){
-    this.router.navigate([MAIN_PATHS.MAIN]);
+    this.alertService.success('Your otp verifyed successfully.').then(res=>{
+      this.router.navigate([MAIN_PATHS.MAIN]);
+    }).catch(error=>{
+      console.log('Error:- ',error);
+    })
   }
 
   input(event){

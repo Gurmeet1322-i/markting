@@ -5,13 +5,14 @@ body {
 }
 
 .card {
-    width: 400px;
-    padding: 10px;
+    /* max-height: 400px; */
+    margin: 10px;
     border-radius: 20px;
     background: #fff;
     border: none;
     /* height: 400px; */
-    position: relative
+    max-width: 400px;
+    position: relative;
 }
 
 .card {
@@ -21,7 +22,8 @@ body {
 }
 
 .container {
-    height: 100vh
+    margin-top: 40px;
+    overflow: hidden;
 }
 
 .mobile-text {
