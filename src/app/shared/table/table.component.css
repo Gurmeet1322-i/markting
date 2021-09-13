@@ -19,4 +19,10 @@ tr:hover {
     height: 100%;
     background-color: #fff;
     border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+.table-box td {
+    min-width: 250px;
 }
