@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/core/services/auth-service';
-import { AUTH_APIS, AUTH_PATH, MAIN_PATHS, REGEX } from '../../constants';
+import { AUTH_APIS, AUTH_PATH, MAIN_PATHS, MESSAGES, REGEX } from '../../constants';
 
 @Component({
   selector: 'app-sign-in',
@@ -25,7 +25,7 @@ export class SignInComponent implements OnInit {
   }
 
  submit() {
-  this.toastrService.success('4 Digits OTP send on your number.')
+  this.toastrService.success(MESSAGES.OTP_SEND_SUCCESSFULLY);
     this.router.navigate([AUTH_PATH.VERIFY_OTP])
   }
 }

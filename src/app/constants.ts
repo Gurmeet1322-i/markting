@@ -4,6 +4,13 @@ export interface UserRute {
     role:number
 }
 
+export interface TableHeaders{
+    key?:string,
+    name:string,
+    sort?:string,
+    case:string
+}
+
 export const AUTH_PATH ={
     SIGN_IN:'sign-in',
     VERIFY_OTP:'otp-verify'
@@ -64,3 +71,75 @@ export const ADMIN_ROUTES:UserRute[]=[
         role:1
     }
 ]
+
+
+export const PAYMENT_REQUEST_TABLE:TableHeaders[] =[
+    {
+        key:'',
+        case:'serial',
+        name:'S.No.',
+    },
+    {
+        key:'name',
+        case:'normal',
+        name:'Name',
+    },
+    {
+        key:'phone',
+        case:'normal',
+        name:'Phone',
+    },
+    {
+        key:'totalAmount',
+        case:'amount',
+        name:'Total Amount',
+    },
+    {
+        key:'widhrawAmount',
+        case:'withdraw',
+        name:'Widhraw Amount',
+    },
+    {
+        key:'action',
+        case:'acceptReject',
+        name:'Action',
+    }
+]
+
+export const USER_TABLE:TableHeaders[] =[
+    {
+        key:'',
+        case:'serial',
+        name:'S.No.',
+    },
+    {
+        key:'name',
+        case:'normal',
+        name:'Name',
+    },
+    {
+        key:'phone',
+        case:'normal',
+        name:'Phone',
+    },
+    {
+        key:'otp',
+        case:'normal',
+        name:'OTP',
+    },
+    {
+        key:'totalAmount',
+        case:'amount',
+        name:'Amount',
+    },
+    {
+        key:'action',
+        case:'editDelete',
+        name:'Action',
+    }
+]
+
+export const MESSAGES ={
+    OTP_SEND_SUCCESSFULLY:"Otp send on your register number.",
+    YOUR_USER_VERIFYED_SUCCESSFULLY:'You Registred successfully.'
+}

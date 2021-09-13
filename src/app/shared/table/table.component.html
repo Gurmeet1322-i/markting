@@ -1,93 +1,37 @@
-<h4 class="text-center mt-5">Payment Request</h4>
+<h4 class="text-center mt-5">{{title}}</h4>
 <div class="table-box table-responsive">
     <table class="table">
         <thead class="thead-light">
             <tr>
-                <th>No.</th>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Action</th>
+                <th *ngFor="let head of headers">{{head?.name}}</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>9781747678</td>
-                <td>
-                    <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
-                    <button type="button" class="btn btn-success">Accept</button>
-                    <button type="button" class="btn btn-danger">Rejact</button>
-                </td>
-            </tr>
-            <tr class="bg-white">
-                <td>2</td>
-                <td>Jacob</td>
-                <td>9781747678</td>
-                <td>
-                    <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
-                    <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                    <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                </td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Larry</td>
-                <td>9781747678</td>
-                <td>
-                    <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
-                    <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                    <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                </td>
-            </tr>
-            <tr class="bg-white">
-                <td>4</td>
-                <td>Jacob</td>
-                <td>9781747678</td>
-                <td>
-                    <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
-                    <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                    <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                </td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Larry</td>
-                <td>9781747678</td>
-                <td>
-                    <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
-                    <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                    <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                </td>
-            </tr>
-            <tr class="bg-white">
-                <td>6</td>
-                <td>Jacob</td>
-                <td>9781747678</td>
-                <td>
-                    <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
-                    <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                    <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                </td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>Larry</td>
-                <td>9781747678</td>
-                <td>
-                    <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
-                    <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                    <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                </td>
-            </tr>
-            <tr class="bg-white">
-                <td>8</td>
-                <td>Jacob</td>
-                <td>9781747678</td>
-                <td>
-                    <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
-                    <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                    <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+            <tr *ngFor="let obj of records;let i =index">
+                <td *ngFor="let head of headers">
+                    <span [ngSwitch]="head.case">
+                        <span *ngSwitchCase="'serial'">
+                            {{i+1}}
+                                                        </span>
+                    <span *ngSwitchCase="'normal'">
+{{obj[head.key]}}
+                            </span>
+                    <span class="text-success" *ngSwitchCase="'amount'">
+                                {{'₹'+ obj[head.key]}}
+                                                            </span>
+                    <span class="text-danger" *ngSwitchCase="'withdraw'">
+                                                                {{'₹'+ obj[head.key]}}
+                                                                                            </span>
+                    <span class="text-danger" *ngSwitchCase="'acceptReject'">
+                        <button type="button" class="btn btn-success">Accept</button>
+                        <button type="button" class="btn btn-danger">Reject</button>
+                                                                                                                            </span>
+                    <span class="text-danger" *ngSwitchCase="'editDelete'">
+                        <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                        <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                                                                                                                                                                                                                                    </span>
+
+                    </span>
                 </td>
             </tr>
         </tbody>
