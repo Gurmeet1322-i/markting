@@ -25,4 +25,11 @@ export class NavbarComponent implements OnInit {
     this.router.navigate([AUTH_PATH.SIGN_IN]);
   }
 
+  closeBar(){
+   let item:any = document.getElementById('check');
+   if (item != item.checked) {
+    item.click();
+  }
+  }
+
 }
