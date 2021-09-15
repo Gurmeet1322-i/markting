@@ -55,3 +55,7 @@ h5 {
     font-weight: bold;
     font-family: Arial;
 }
+
+.model-popup {
+    border-radius: 20px;
+}

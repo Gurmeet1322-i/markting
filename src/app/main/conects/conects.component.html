@@ -1,7 +1,9 @@
 <div class="row">
     <div class="col-lg-3 col-md-6 mb-3">
         <div class="card">
-            <img src="assets/img/undraw_Add_files_re_v09g 1.svg" class="card-img-top" alt="..." />
+            <em (click)="onOpenAddPerson()">
+                <img src="assets/img/undraw_Add_files_re_v09g 1.svg" class="card-img-top" alt="..." />
+            </em>
             <div class="card-body">
                 <h5 class="card-title text-center">Add Person</h5>
             </div>
@@ -46,3 +48,46 @@
 
     </p>
 </div>
+
+<ng-template #addPersonTemplate let-modal>
+    <div class="modal fade show" id="bulkedit" style="display:block">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header justify-content-center">
+                    <h3 class="modal-title">Add User</h3>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <form action="">
+                                <div class="form-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input type="text" class="form-control" placeholder="Enter user name">
+                                </div>
+                                <div class="form-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input type="text" class="form-control" placeholder="Enter user's phone number">
+                                </div>
+                                <div class="justify-content-center">
+                                    <div class="row">
+                                        <div class="col-6 text-center">
+                                            <button type="button" class="btn btn-outline-success" data-dismiss="modal" (click)="modal.close('Ok click')">Save</button>&nbsp;
+                                        </div>
+                                        <div class="col-6 text-center">
+                                            <button type="button" class="btn btn-outline-danger" data-dismiss="modal" (click)="modal.close('Ok click')">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</ng-template>

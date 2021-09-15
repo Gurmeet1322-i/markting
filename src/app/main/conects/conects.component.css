@@ -36,3 +36,7 @@
 img {
     cursor: pointer;
 }
+
+.form-group {
+    margin: 10px;
+}
