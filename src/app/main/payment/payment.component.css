@@ -22,3 +22,9 @@ input[type="radio"] {
 .bold {
     font-weight: bold
 }
+
+.cross-button {
+    position: relative;
+    top: -9px;
+    right: -5px;
+}

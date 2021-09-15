@@ -7,6 +7,7 @@ import { GooglePayButtonModule } from '@google-pay/button-angular';
 import { ConectsComponent } from './conects/conects.component';
 import { AccountComponent } from './account/account.component';
 import { PaymentComponent } from './payment/payment.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations:[
@@ -19,7 +20,8 @@ import { PaymentComponent } from './payment/payment.component';
     imports:[
         CommonModule,
         MainRoutingModule,
-        GooglePayButtonModule
+        GooglePayButtonModule,
+        ReactiveFormsModule
     ],
     providers:[]
 })

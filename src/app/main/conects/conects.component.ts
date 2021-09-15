@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { REGEX } from 'src/app/constants';
 import { ModalService } from 'src/app/core/services/modal.service';
-import { PaymentComponent } from '../payment/payment.component';
 
 @Component({
   selector: 'app-conects',
@@ -8,7 +9,8 @@ import { PaymentComponent } from '../payment/payment.component';
   styleUrls: ['./conects.component.css']
 })
 export class ConectsComponent implements OnInit {
-  @ViewChild('addPersonTemplate') addPersonModal:TemplateRef<any>;
+  addPersonFrom: FormGroup;
+  @ViewChild('addPersonTemplate') addPersonModal: TemplateRef<any>;
   paymentRequest: google.payments.api.PaymentDataRequest = {
     apiVersion: 2,
     apiVersionMinor: 0,
@@ -17,12 +19,12 @@ export class ConectsComponent implements OnInit {
         type: 'CARD',
         parameters: {
           allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
-          allowedCardNetworks: ['AMEX', 'VISA', 'MASTERCARD','ELO_DEBIT','ELECTRON']
+          allowedCardNetworks: ['AMEX', 'VISA', 'MASTERCARD', 'ELO_DEBIT', 'ELECTRON']
         },
         tokenizationSpecification: {
           type: 'PAYMENT_GATEWAY',
           parameters: {
-          
+
             gatewayMerchantId: 'exampleGatewayMerchantId'
           }
         }
@@ -42,8 +44,15 @@ export class ConectsComponent implements OnInit {
     callbackIntents: ['PAYMENT_AUTHORIZATION']
   };
   constructor(
-    private modalService:ModalService
-  ) { }
+    private modalService: ModalService,
+    private fb: FormBuilder
+  ) {
+    this.addPersonFrom = this.fb.group({
+      userName: ['', Validators.required],
+      phone: ['', Validators.compose([Validators.required, Validators.pattern(REGEX.PHONE)])],
+      payment: [false]
+    })
+  }
 
   ngOnInit(): void {
   }
@@ -54,7 +63,6 @@ export class ConectsComponent implements OnInit {
   }
 
   onPaymentDataAuthorized: google.payments.api.PaymentAuthorizedHandler = (patmentData) => {
-    console.log('Payment Authorized: ', patmentData);
     return {
       transactionState: 'SUCCESS'
     }
@@ -64,8 +72,25 @@ export class ConectsComponent implements OnInit {
     console.error(event);
   }
 
-  onOpenAddPerson(){
-    this.modalService.openModal(PaymentComponent,{},'sm')
+  onOpenAddPerson() {
+    this.modalService.openModal(this.addPersonModal, {}, 'sm')
+  }
+
+  submit() {
+    if(this.addPersonFrom.valid){
+      console.log(this.addPersonFrom.value);
+    }else{
+      Object.keys(this.addPersonFrom.controls).forEach(key=>{
+        this.addPersonFrom.controls[key].markAsTouched({
+          onlySelf:true
+        })
+      })
+    }
+  }
+
+  closeModal() {
+    this.addPersonFrom?.reset();
+    this.modalService.closeModal();
   }
 
 }

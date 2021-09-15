@@ -39,21 +39,14 @@ export class VerifyOtpComponent implements OnInit {
   input(event) {
     if (this.OtpForm.value.one.length == 1) {
       this.second.nativeElement.focus();
-    } else {
-      this.first.nativeElement.focus();
     }
-
     if (this.OtpForm.value.two.length == 1) {
       this.third.nativeElement.focus();
-    } else {
-      this.second.nativeElement.focus();
     }
 
     if (this.OtpForm.value.three.length == 1) {
       this.forth.nativeElement.focus();
-    } else {
-      this.third.nativeElement.focus();
-    }
+    } 
   }
 
 }
