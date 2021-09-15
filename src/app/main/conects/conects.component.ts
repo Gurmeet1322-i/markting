@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
+import { ModalService } from 'src/app/core/services/modal.service';
 
 @Component({
   selector: 'app-conects',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./conects.component.css']
 })
 export class ConectsComponent implements OnInit {
+  @ViewChild('addPersonTemplate') addPersonModal:TemplateRef<any>;
   paymentRequest: google.payments.api.PaymentDataRequest = {
     apiVersion: 2,
     apiVersionMinor: 0,
@@ -38,7 +40,9 @@ export class ConectsComponent implements OnInit {
     },
     callbackIntents: ['PAYMENT_AUTHORIZATION']
   };
-  constructor() { }
+  constructor(
+    private modalService:ModalService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -59,5 +63,8 @@ export class ConectsComponent implements OnInit {
     console.error(event);
   }
 
+  onOpenAddPerson(){
+    this.modalService.openModal(this.addPersonModal,{},'sm')
+  }
 
 }

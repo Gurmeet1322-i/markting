@@ -29,6 +29,8 @@
     border-radius: 20px;
     padding: 20px;
     background-color: #ffff;
-    /* -webkit-box-shadow: 0 10px 15px -3px rgb(0 0 0 / 7%), 0 4px 6px -2px rgb(0 0 0 / 5%);
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 7%), 0 4px 6px -2px rgb(0 0 0 / 5%); */
+}
+
+.form-group {
+    margin: 10px;
 }

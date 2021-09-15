@@ -11,7 +11,7 @@ import { SpinnerComponent } from './common/spinner/spinner.component';
 import { InterceptorService } from './core/services/interceptor-service';
 import { ToastrModule } from 'ngx-toastr';
 import { VerifyOtpComponent } from './auth/verify-otp/verify-otp.component';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +20,7 @@ import { VerifyOtpComponent } from './auth/verify-otp/verify-otp.component';
     VerifyOtpComponent
   ],
   imports: [
+    NgbModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
