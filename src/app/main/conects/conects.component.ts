@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { ModalService } from 'src/app/core/services/modal.service';
+import { PaymentComponent } from '../payment/payment.component';
 
 @Component({
   selector: 'app-conects',
@@ -64,7 +65,7 @@ export class ConectsComponent implements OnInit {
   }
 
   onOpenAddPerson(){
-    this.modalService.openModal(this.addPersonModal,{},'sm')
+    this.modalService.openModal(PaymentComponent,{},'sm')
   }
 
 }
